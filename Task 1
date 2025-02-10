@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class ShipCostCalculator {
+    public static void main(String[] args) {
+        // Create a Scanner object for user input
+        Scanner scanner = new Scanner(System.in);
+
+        final double FREE_SHIPPING_THRESHOLD = 100.0;
+        final double SHIPPING_RATE = 0.02;
+
+        System.out.print("Enter the price of the item: ");
+        double itemPrice = scanner.nextDouble();
+
+        double shippingCost = (itemPrice >= FREE_SHIPPING_THRESHOLD) ? 0.0 : itemPrice * SHIPPING_RATE;
+
+        double totalPrice = itemPrice + shippingCost;
+
+        System.out.println("Shipping cost: $" + String.format("%.2f", shippingCost));
+        System.out.println("Total price: $" + String.format("%.2f", totalPrice));
+
+        scanner.close();
+    }
+}
